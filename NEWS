@@ -6,6 +6,12 @@ Changes and improvements to testtools_, grouped by release.
 NEXT
 ~~~~
 
+Changes
+-------
+
+* Switched from unittest2 to the standard library unittest module (possible
+  now that Python 2.6 is no longer supported).
+
 2.2.0
 ~~~~~
 
@@ -509,7 +515,7 @@ experimental and we might need to break it if it turns out to be unsuitable.
 
 Improvements
 ------------
-* ``assertRaises`` works properly for exception classes that have custom 
+* ``assertRaises`` works properly for exception classes that have custom
   metaclasses
 
 * ``ConcurrentTestSuite`` was silently eating exceptions that propagate from
@@ -696,14 +702,14 @@ Improvements
 Changes
 -------
 
-* ``testtools.run discover`` will now sort the tests it discovered. This is a 
+* ``testtools.run discover`` will now sort the tests it discovered. This is a
   workaround for http://bugs.python.org/issue16709. Non-standard test suites
   are preserved, and their ``sort_tests()`` method called (if they have such an
   attribute). ``testtools.testsuite.sorted_tests(suite, True)`` can be used by
   such suites to do a local sort. (Robert Collins, #1091512)
 
 * ``ThreadsafeForwardingResult`` now defines a stub ``progress`` method, which
-  fixes ``testr run`` of streams containing progress markers (by discarding the 
+  fixes ``testr run`` of streams containing progress markers (by discarding the
   progress data). (Robert Collins, #1019165)
 
 0.9.23
@@ -1523,7 +1529,7 @@ Improvements
   systems where os.sep is not '/'.
 
 * When a cleanUp or tearDown exception occurs, it is now accumulated as a new
-  traceback in the test details, rather than as a separate call to addError / 
+  traceback in the test details, rather than as a separate call to addError /
   addException. This makes testtools work better with most TestResult objects
   and fixes bug #335816.
 
